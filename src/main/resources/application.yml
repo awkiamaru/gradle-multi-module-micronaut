@@ -13,3 +13,5 @@ liquibase:
   datasources:
     default:
       change-log: classpath:database/liquibase-changelog.xml
+      database-change-log-table: 'core_changelog'
+      database-change-log-lock-table: 'core_changelog_lock'

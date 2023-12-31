@@ -1,4 +1,6 @@
 datasources:
   default:
-    url: jdbc:tc:mysql:8:///db
+    url: jdbc:tc:mysql:8:///core_database
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    db-type: mysql
+    dialect: MYSQL

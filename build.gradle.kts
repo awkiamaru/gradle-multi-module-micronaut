@@ -24,18 +24,22 @@ dependencies {
     ksp(libraries.micronaut.http.validation)
     ksp(libraries.micronaut.serde.processor)
 
-    implementation(tools.kotlin.reflect)
-    implementation(tools.kotlin.stdlib)
     implementation(libraries.micronaut.kotlin.runtime)
     implementation(libraries.micronaut.serde.jackson)
-    implementation(libraries.micronaut.liquibase)
+
+//  Database and migrations
     implementation(libraries.micronaut.data.jdbc)
     implementation(libraries.micronaut.jdbc.hikari)
+    implementation(libraries.micronaut.liquibase)
     implementation(libraries.slf4j.jul.to.slf4j)
 
-    compileOnly(libraries.micronaut.http.client)
-    runtimeOnly(libraries.logback.classic)
+//  Kotlin tools
+    implementation(tools.kotlin.reflect)
+    implementation(tools.kotlin.stdlib)
+
     runtimeOnly(libraries.jackson.module.kotlin)
+    runtimeOnly(libraries.logback.classic)
+    compileOnly(libraries.micronaut.http.client)
     runtimeOnly(libraries.mysql.connector.java)
     runtimeOnly(libraries.snakeyaml)
 
@@ -84,7 +88,7 @@ micronaut {
 
 tasks {
     test {
-        jvmArgs = listOf("-Duser.timezone=UTC")
+        jvmArgs = listOf("-Duser.timezone=UTC", "-Djava.net.preferIPv4Stack=true")
     }
 }
 
