@@ -28,15 +28,20 @@ dependencies {
     implementation(tools.kotlin.stdlib)
     implementation(libraries.micronaut.kotlin.runtime)
     implementation(libraries.micronaut.serde.jackson)
-    implementation(libraries.micronaut.serde.jackson)
+    implementation(libraries.micronaut.liquibase)
+    implementation(libraries.micronaut.data.jdbc)
+    implementation(libraries.micronaut.jdbc.hikari)
+    implementation(libraries.slf4j.jul.to.slf4j)
 
     compileOnly(libraries.micronaut.http.client)
     runtimeOnly(libraries.logback.classic)
     runtimeOnly(libraries.jackson.module.kotlin)
+    runtimeOnly(libraries.mysql.connector.java)
     runtimeOnly(libraries.snakeyaml)
 
     testImplementation(libraries.micronaut.http.client)
     testImplementation("org.testcontainers:testcontainers")
+    testImplementation(libraries.testcontainers.mysql)
 }
 
 
